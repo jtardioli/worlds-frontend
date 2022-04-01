@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Navbar from "../src/components/Navbar/Navbar";
+import Worlds from "../src/components/worlds";
 
 const Home: NextPage = () => {
   return (
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
         h="100vh"
       >
         <Navbar />
+        <Worlds />
         <Heading
           sx={{ wordSpacing: "5px" }}
           letterSpacing="2px"
