@@ -2,7 +2,7 @@ import { blacken } from "@chakra-ui/theme-tools";
 
 export const ButtonStyles = {
   baseStyle: {
-    borderRadius: "3px",
+    borderRadius: "15px",
     _focus: { boxShadow: "none" },
   },
 
@@ -10,14 +10,14 @@ export const ButtonStyles = {
 
   variants: {
     basic: {
-      bg: "main",
+      bg: "dimWhite",
       color: "black",
       _hover: {
-        bg: blacken("main", 12),
+        bg: blacken("dimWhite", 15),
       },
       w: "10rem",
-      h: "2.3rem",
-      letterSpacing: "2px",
+      h: "2.5rem",
+      fontSize: "0.85rem",
     },
   },
 
