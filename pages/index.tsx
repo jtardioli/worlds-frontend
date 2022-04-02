@@ -40,7 +40,7 @@ const Home: NextPage = () => {
         bgImage="images/starBackground.jpeg"
         bgSize="contain"
         w="100%"
-        h="100vh"
+        h="80vh"
         direction="column"
         alignItems="center"
       >
@@ -69,15 +69,36 @@ const Home: NextPage = () => {
           </Text>
         </Flex>
 
-        <Flex mt="15vh" justifyContent="space-between" paddingX="10%" w="100%">
+        <Flex mt="27vh" justifyContent="space-between" paddingX="10%" w="100%">
           <StatsCard description="Mints" stat="0" />
           <StatsCard description="Owners" stat="0" />
           <StatsCard description="Floor" stat="Ξ 0" />
           <StatsCard description="Volume" stat="Ξ 0" />
         </Flex>
+      </Flex>
+      <Flex
+        bgImage="images/starBackground.jpeg"
+        bgSize="contain"
+        w="100%"
+        h="50vh"
+        direction="column"
+        alignItems="center"
+      >
         <Flex justifyContent="space-evenly" width="50%" mt="12vh">
           <Button variant="basic">Mint Now</Button>
           <Button variant="hollow">View on Opensea</Button>
+        </Flex>
+        <Flex
+          height="8vh"
+          bottom="0"
+          position="absolute"
+          w="55%"
+          justify="space-between"
+        >
+          <Text>Smart Contract</Text>
+          <Text>Twitter</Text>
+          <Text>Discord</Text>
+          <Text>Sketch</Text>
         </Flex>
       </Flex>
     </div>
