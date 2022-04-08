@@ -2,11 +2,14 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { worldsTheme } from "../styles/theme";
+import { WalletContext } from "../contexts/WalletContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={worldsTheme}>
-      <Component {...pageProps} />
+      <WalletContext>
+        <Component {...pageProps} />
+      </WalletContext>
     </ChakraProvider>
   );
 }

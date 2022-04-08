@@ -1,7 +1,16 @@
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
+import { useState } from "react";
+import { useWallet } from "../../contexts/WalletContext";
+
+interface Window {
+  ethereum: any;
+}
 
 const Navbar = () => {
+  const [accountName, setAccountName] = useState("ConnectWallet");
+  const { connectWalletHandler, wallets } = useWallet();
+
   return (
     <Flex
       alignItems="center"
@@ -37,7 +46,18 @@ const Navbar = () => {
         </Link>
       </Flex>
       <Flex alignItems="center" justify="flex-end" flexBasis="100%">
-        <Button variant="basic">Connect wallet</Button>
+        <Button
+          onClick={() => {
+            connectWalletHandler();
+            console.log(wallets);
+            if (wallets.length > 1) {
+              console.log(wallets);
+            }
+          }}
+          variant="basic"
+        >
+          Connect Wallet
+        </Button>
       </Flex>
     </Flex>
   );
