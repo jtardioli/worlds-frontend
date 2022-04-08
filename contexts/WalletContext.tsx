@@ -44,14 +44,15 @@ export const WalletContext = ({ children }: { children: ReactNode }) => {
     const getWallets = await onboard.connectWallet();
     setWallets(getWallets);
     if (getWallets.length > 0) {
+      console.log(getWallets);
       setConnectButtonText(
-        getWallets[0].accounts[0].ens!.name ??
+        getWallets[0].accounts[0].ens!?.name ??
           getShortenedAddress(getWallets[0].accounts[0].address)
       );
     }
   };
   const values = { connectWalletHandler, wallets, connectButtonText };
-  console.log(wallets);
+
   return (
     <walletContext.Provider value={values}>{children}</walletContext.Provider>
   );
