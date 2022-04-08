@@ -1,25 +1,21 @@
-import { Box, Button, Flex, Heading, ScaleFade, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import Navbar from "../components/Navbar/Navbar";
-import Worlds from "../components/Worlds";
-import StatsCard from "../components/Cards/StatsCard";
-
-import { useInViewport } from "react-in-viewport";
-import { useRef } from "react";
-import Footer from "../components/Partials/Footer";
-import Link from "next/link";
 import Welcome from "../components/Blocks/Welcome";
 import About from "../components/Blocks/About";
-
+import Footer from "../components/Partials/Footer";
 const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Worlds | Home</title>
+        <title>Worlds NFTs | Your Own Personal Solar System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Your own personal solor system" />
+        <meta
+          name="description"
+          content="The first epoch contains 111 unique collectible solar systems with proof of ownership
+              stored on the Polygon blockchain. Powered by an ERC721 contract
+              and p5.js, each new world contains a random number of planets,
+              gravitational constant, and orbit pattern."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Welcome />

@@ -1,4 +1,5 @@
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useWallet } from "../../contexts/WalletContext";
@@ -8,8 +9,7 @@ interface Window {
 }
 
 const Navbar = () => {
-  const [accountName, setAccountName] = useState("ConnectWallet");
-  const { connectWalletHandler, wallets } = useWallet();
+  const { connectWalletHandler, connectButtonText } = useWallet();
 
   return (
     <Flex
@@ -19,8 +19,20 @@ const Navbar = () => {
       minH="12vh"
       padding="0 80px"
     >
-      <Flex flexBasis="100%" fontSize="1.4rem">
-        Worlds
+      <Flex
+        alignItems="center"
+        position="relative"
+        flexBasis="100%"
+        fontSize="1.4rem"
+      >
+        <Image
+          src="/images/worldsLogoTransparent.png"
+          height="35px"
+          width="35px"
+        ></Image>
+        <Text letterSpacing="1px" ml="10px">
+          Worlds
+        </Text>
       </Flex>
       <Flex
         flexBasis="100%"
@@ -49,14 +61,10 @@ const Navbar = () => {
         <Button
           onClick={() => {
             connectWalletHandler();
-            console.log(wallets);
-            if (wallets.length > 1) {
-              console.log(wallets);
-            }
           }}
           variant="basic"
         >
-          Connect Wallet
+          {connectButtonText}
         </Button>
       </Flex>
     </Flex>

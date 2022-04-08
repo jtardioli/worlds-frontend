@@ -1,6 +1,7 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
 import Onboard, { WalletState } from "@web3-onboard/core";
 import injectedModule from "@web3-onboard/injected-wallets";
+import { getShortenedAddress } from "../utils/utils";
 
 const MAINNET_RPC_URL = `https://mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_KEY}`;
 
@@ -23,9 +24,9 @@ const onboard = Onboard({
     // },
   ],
   appMetadata: {
-    name: "Words NFTs",
-    icon: "<SVG_ICON_STRING>",
-    logo: "<SVG_LOGO_STRING>",
+    name: "Worlds NFTs",
+    icon: "/images/worldsLogoTransparent.png",
+    logo: "/images/worldsLogoTransparent.png",
     description: "Your own personal solar system.",
     recommendedInjectedWallets: [
       { name: "MetaMask", url: "https://metamask.io" },
@@ -38,12 +39,19 @@ const walletContext = createContext(null as any);
 
 export const WalletContext = ({ children }: { children: ReactNode }) => {
   const [wallets, setWallets] = useState<WalletState[]>([]);
+  const [connectButtonText, setConnectButtonText] = useState("Connect Wallet");
   const connectWalletHandler = async () => {
     const getWallets = await onboard.connectWallet();
     setWallets(getWallets);
+    if (getWallets.length > 0) {
+      setConnectButtonText(
+        getWallets[0].accounts[0].ens!.name ??
+          getShortenedAddress(getWallets[0].accounts[0].address)
+      );
+    }
   };
-  const values = { connectWalletHandler, wallets };
-
+  const values = { connectWalletHandler, wallets, connectButtonText };
+  console.log(wallets);
   return (
     <walletContext.Provider value={values}>{children}</walletContext.Provider>
   );
