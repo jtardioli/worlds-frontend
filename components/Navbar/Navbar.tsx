@@ -41,21 +41,13 @@ const Navbar = () => {
         w="30%"
         fontSize="1rem"
       >
-        <Link href="/">
-          <a>Home</a>
-        </Link>
+        <a>About</a>
 
-        <Link href="/mint">
-          <a>Mint</a>
-        </Link>
+        <a>Mint</a>
 
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-
-        <Link href="/community">
-          <a>Community</a>
-        </Link>
+        <a href="https://discord.gg/xctJ3H63KT" target="_blank">
+          Community
+        </a>
       </Flex>
       <Flex alignItems="center" justify="flex-end" flexBasis="100%">
         <Button
