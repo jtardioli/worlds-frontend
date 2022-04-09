@@ -75,6 +75,8 @@ const Navbar = () => {
           aria-label="Open Menu"
           size="lg"
           variant="ghost"
+          _hover={{ bg: "none" }}
+          _active={{ bg: "none" }}
           icon={<HamburgerIcon />}
           onClick={() => {
             setDisplay("flex");
@@ -101,6 +103,8 @@ const Navbar = () => {
             aria-label="Close Menu"
             icon={<CloseIcon />}
             variant="ghost"
+            _hover={{ bg: "none" }}
+            _active={{ bg: "none" }}
           />
         </Flex>
         <Flex
