@@ -1,8 +1,9 @@
-import { Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Button, Flex, Heading, IconButton, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useWallet } from "../../contexts/WalletContext";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 interface Window {
   ethereum: any;
@@ -10,20 +11,24 @@ interface Window {
 
 const Navbar = () => {
   const { connectWalletHandler, connectButtonText } = useWallet();
-
+  const [display, setDisplay] = useState("none");
   return (
     <Flex
       alignItems="center"
       justifyContent="space-between"
       w="100%"
       minH="12vh"
-      padding="0 80px"
+      px={{ base: "10px", md: "80px" }}
+      position="fixed"
+      bg="black"
+      zIndex={3}
     >
       <Flex
         alignItems="center"
         position="relative"
         flexBasis="100%"
         fontSize="1.4rem"
+        mr="5px"
       >
         <Image
           src="/images/worldsLogoTransparent.png"
@@ -40,10 +45,14 @@ const Navbar = () => {
         justifyContent="space-between"
         w="30%"
         fontSize="1rem"
+        minW="350px"
+        display={{ base: "none", lg: "flex" }}
       >
-        <a>About</a>
+        <a href="#home">Home</a>
 
-        <a>Mint</a>
+        <a href="#about">About</a>
+
+        <a href="#mint">Mint</a>
 
         <a href="https://discord.gg/xctJ3H63KT" target="_blank">
           Community
@@ -58,6 +67,94 @@ const Navbar = () => {
         >
           {connectButtonText}
         </Button>
+      </Flex>
+      <Flex>
+        <IconButton
+          ml="10px"
+          display={{ base: "flex", lg: "none" }}
+          aria-label="Open Menu"
+          size="lg"
+          icon={<HamburgerIcon />}
+          onClick={() => {
+            setDisplay("flex");
+          }}
+        />
+      </Flex>
+      <Flex
+        flexDirection="column"
+        alignItems="center"
+        w="100vw"
+        height="100vh"
+        display={display}
+        bg="black"
+        position="fixed"
+        top="0"
+        left="0"
+        overflow="auto"
+      >
+        <Flex m="10px 15px" alignSelf="flex-end">
+          <IconButton
+            onClick={() => {
+              setDisplay("none");
+            }}
+            aria-label="Close Menu"
+            icon={<CloseIcon />}
+          />
+        </Flex>
+        <Flex
+          justifyContent="space-between"
+          alignItems="center"
+          direction="column"
+          height="50vh"
+          mt="10vh"
+        >
+          <Button
+            fontSize="2rem"
+            _active={{ bg: "none" }}
+            _hover={{ bg: "none" }}
+            bg="none"
+            onClick={() => {
+              setDisplay("none");
+            }}
+          >
+            <a href="#home">Home</a>
+          </Button>
+          <Button
+            fontSize="2rem"
+            _active={{ bg: "none" }}
+            _hover={{ bg: "none" }}
+            bg="none"
+            onClick={() => {
+              setDisplay("none");
+            }}
+          >
+            <a href="#about">About</a>
+          </Button>
+          <Button
+            fontSize="2rem"
+            _active={{ bg: "none" }}
+            _hover={{ bg: "none" }}
+            bg="none"
+            onClick={() => {
+              setDisplay("none");
+            }}
+          >
+            <a href="#mint">Mint</a>
+          </Button>
+          <Button
+            fontSize="2rem"
+            _active={{ bg: "none" }}
+            _hover={{ bg: "none" }}
+            bg="none"
+            onClick={() => {
+              setDisplay("none");
+            }}
+          >
+            <a href="https://discord.gg/xctJ3H63KT" target="_blank">
+              Community
+            </a>
+          </Button>
+        </Flex>
       </Flex>
     </Flex>
   );

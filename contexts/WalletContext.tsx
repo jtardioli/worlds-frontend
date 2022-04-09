@@ -24,7 +24,7 @@ const onboard = Onboard({
     // },
   ],
   appMetadata: {
-    name: "Worlds NFTs",
+    name: "Worlds NFT",
     icon: "/images/worldsLogoTransparent.png",
     logo: "/images/worldsLogoTransparent.png",
     description: "Your own personal solar system.",

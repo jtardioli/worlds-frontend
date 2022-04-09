@@ -9,10 +9,13 @@ const Footer = () => {
       position="absolute"
       w="100%"
       justify="space-between"
-      paddingX="25%"
+      paddingX={{ base: "5%", sm: "15%", md: "25%" }}
     >
       <Text>Smart Contract</Text>
-      <Text>Twitter</Text>
+
+      <a href="https://twitter.com/WorldsNFT_" target="_blank">
+        Twitter
+      </a>
       <a href="https://discord.gg/xctJ3H63KT" target="_blank">
         Discord
       </a>

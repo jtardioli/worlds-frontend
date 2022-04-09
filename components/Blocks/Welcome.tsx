@@ -1,6 +1,6 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import Navbar from "../Navbar/Navbar";
+
 import Worlds from "../Worlds";
 
 const Welcome = () => {
@@ -13,13 +13,14 @@ const Welcome = () => {
         justifyContent="flex-start"
         flexDir="column"
         h="100vh"
+        id="home"
+        width="100%"
       >
-        <Navbar />
         <Heading
           sx={{ wordSpacing: "5px" }}
           letterSpacing="2px"
-          mt="5vh"
-          fontSize="3rem"
+          mt="18vh"
+          fontSize={{ base: "1.6rem", sm: "2.2rem", md: "3rem" }}
         >
           <Text color="rgba(255,255,255, 0.4)" as="span">
             DISCOVER NEW

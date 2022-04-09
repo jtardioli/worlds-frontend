@@ -1,5 +1,5 @@
 function windowResized() {
-  resizeCanvas(windowWidth, 500);
+  resizeCanvas(windowWidth - 5, 500);
 }
 
 let sun;
@@ -19,7 +19,7 @@ function setup() {
   // p5 set up
   colorMode(HSB, 255);
   const numPlanets = random(1, 8);
-  p5Canvas = createCanvas(windowWidth, 500);
+  p5Canvas = createCanvas(windowWidth - 5, 500);
   p5Canvas.position(0, 200);
   p5Canvas.style("z-index");
   sun = new Sun(80, createVector(0, 0), createVector(0, 0));
@@ -44,8 +44,6 @@ function setup() {
 }
 
 function draw() {
-  // if (frameCount === 1) capturer.start();
-  // if (frameCount === 1) capturer.start()
   clear();
   translate(width / 2, height / 2);
 
@@ -55,12 +53,6 @@ function draw() {
     planet.show();
     planet.update();
   }
-  // capturer.capture(p5Canvas.canvas);
-  // if (frameCount === 1000) {
-  //   noLoop();
-  //   capturer.stop();
-  //   capturer.save();
-  // }
 }
 
 class Body {
