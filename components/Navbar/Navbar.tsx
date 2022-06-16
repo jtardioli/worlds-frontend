@@ -2,15 +2,15 @@ import { Button, Flex, Heading, IconButton, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useWallet } from "../../contexts/WalletContext";
+
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 interface Window {
   ethereum: any;
 }
 
 const Navbar = () => {
-  const { connectWalletHandler, connectButtonText } = useWallet();
   const [display, setDisplay] = useState("none");
   return (
     <Flex
@@ -59,14 +59,7 @@ const Navbar = () => {
         </a>
       </Flex>
       <Flex alignItems="center" justify="flex-end" flexBasis="100%">
-        <Button
-          onClick={() => {
-            connectWalletHandler();
-          }}
-          variant="basic"
-        >
-          {connectButtonText}
-        </Button>
+        <ConnectButton showBalance={false} accountStatus="address" />
       </Flex>
       <Flex>
         <IconButton
