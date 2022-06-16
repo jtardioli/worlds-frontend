@@ -1,6 +1,6 @@
 ## Worlds Nft
 
-- [Live App](https://www.worldsnft.xyz/) =>
+- [Live App](https://www.worldsnft.xyz/)
 - [Contract Repo](https://github.com/jtardioli/worlds-contract)
 - [Server Repo](https://github.com/jtardioli/worlds-server)
 
