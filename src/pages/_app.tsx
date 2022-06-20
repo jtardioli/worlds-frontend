@@ -14,7 +14,7 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { infuraProvider } from "wagmi/providers/infura";
 
 const { chains, provider } = configureChains(
-  [chain.mainnet],
+  [chain.rinkeby],
   [infuraProvider({ infuraId: process.env.NEXT_PUBLIC_INFURA_ID })]
 );
 
@@ -24,7 +24,7 @@ const { connectors } = getDefaultWallets({
 });
 
 const wagmiClient = createClient({
-  autoConnect: true,
+  autoConnect: false,
   connectors,
   provider,
 });
