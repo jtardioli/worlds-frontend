@@ -11,8 +11,6 @@ const Footer = () => {
       justify="space-between"
       paddingX={{ base: "5%", sm: "15%", md: "25%" }}
     >
-      <Text>Smart Contract</Text>
-
       <a
         href="https://rinkeby.etherscan.io/address/0x2051fe3596cab7f5a1d93913cce4aa0e0399779c#code"
         target="_blank"
@@ -29,14 +27,6 @@ const Footer = () => {
         rel="noreferrer"
       >
         Discord
-      </a>
-
-      <a
-        href="https://editor.p5js.org/jtardioli/sketches/CDf_2NLKa"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Sketch
       </a>
     </Flex>
   );
