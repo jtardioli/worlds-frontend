@@ -74,7 +74,10 @@ const About = () => {
         <a href="#mint">
           <Button variant="basic">Mint Now</Button>
         </a>
-        <a>
+        <a
+          href="https://testnets.opensea.io/collection/worldsnft"
+          target="_blank"
+        >
           <Button variant="hollow">View on Opensea</Button>
         </a>
       </Flex>
