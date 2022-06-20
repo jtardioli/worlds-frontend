@@ -16,19 +16,25 @@ const Footer = () => {
       <a
         href="https://rinkeby.etherscan.io/address/0x2051fe3596cab7f5a1d93913cce4aa0e0399779c#code"
         target="_blank"
+        rel="noreferrer"
       >
         Contract
       </a>
-      <a href="https://twitter.com/WorldsNFT_" target="_blank">
+      <a href="https://twitter.com/WorldsNFT_" target="_blank" rel="noreferrer">
         Twitter
       </a>
-      <a href="https://discord.com/invite/zZcbUmYgaC" target="_blank">
+      <a
+        href="https://discord.com/invite/zZcbUmYgaC"
+        target="_blank"
+        rel="noreferrer"
+      >
         Discord
       </a>
 
       <a
         href="https://editor.p5js.org/jtardioli/sketches/CDf_2NLKa"
         target="_blank"
+        rel="noreferrer"
       >
         Sketch
       </a>

@@ -5,12 +5,10 @@ import Head from "next/head";
 
 const Worlds = () => {
   return (
-    <div>
-      <Head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"></script>
-        <script src="images/worldsGenerator.js"></script>
-      </Head>
-    </div>
+    <>
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"></Script>
+      <Script src="images/worldsGenerator.js"></Script>
+    </>
   );
 };
 

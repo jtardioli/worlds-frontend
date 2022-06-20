@@ -77,6 +77,7 @@ const About = () => {
         <a
           href="https://testnets.opensea.io/collection/worldsnft"
           target="_blank"
+          rel="noreferrer"
         >
           <Button variant="hollow">View on Opensea</Button>
         </a>

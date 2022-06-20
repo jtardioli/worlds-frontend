@@ -34,6 +34,7 @@ const Navbar = () => {
           src="/images/worldsLogoTransparent.png"
           height="35px"
           width="35px"
+          alt="Worlds Logo"
         ></Image>
         <Text letterSpacing="1px" ml="10px">
           Worlds
@@ -54,7 +55,11 @@ const Navbar = () => {
 
         <a href="#mint">Mint</a>
 
-        <a href="https://discord.gg/xctJ3H63KT" target="_blank">
+        <a
+          href="https://discord.gg/xctJ3H63KT"
+          target="_blank"
+          rel="noreferrer"
+        >
           Community
         </a>
       </Flex>
@@ -149,7 +154,11 @@ const Navbar = () => {
               setDisplay("none");
             }}
           >
-            <a href="https://discord.gg/xctJ3H63KT" target="_blank">
+            <a
+              href="https://discord.gg/xctJ3H63KT"
+              target="_blank"
+              rel="noreferrer"
+            >
               Community
             </a>
           </Button>
