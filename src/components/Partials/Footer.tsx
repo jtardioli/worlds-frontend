@@ -7,7 +7,7 @@ const Footer = () => {
       height="6vh"
       bottom="0"
       position="absolute"
-      w="98%"
+      w="97%"
       justify="space-between"
       paddingX={{ base: "5%", sm: "15%", md: "25%" }}
     >
