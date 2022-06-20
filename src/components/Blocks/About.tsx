@@ -43,7 +43,7 @@ const About = () => {
           </Heading>
           <Text fontSize={{ base: "0.9rem", sm: "1rem" }}>
             The first epoch contains 111 unique collectible solar systems with
-            proof of ownership stored on the Polygon blockchain. Powered by an
+            proof of ownership stored on the Rinkby blockchain. Powered by an
             ERC721 contract and p5.js, each new world contains a random number
             of planets, gravitational constant, and orbit pattern.
           </Text>
