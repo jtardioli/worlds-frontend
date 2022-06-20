@@ -13,10 +13,16 @@ const Footer = () => {
     >
       <Text>Smart Contract</Text>
 
+      <a
+        href="https://rinkeby.etherscan.io/address/0x2051fe3596cab7f5a1d93913cce4aa0e0399779c#code"
+        target="_blank"
+      >
+        Contract
+      </a>
       <a href="https://twitter.com/WorldsNFT_" target="_blank">
         Twitter
       </a>
-      <a href="https://discord.gg/xctJ3H63KT" target="_blank">
+      <a href="https://discord.com/invite/zZcbUmYgaC" target="_blank">
         Discord
       </a>
 
