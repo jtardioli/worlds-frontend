@@ -14,9 +14,20 @@ const Home: NextPage = () => {
         <meta
           name="description"
           content="The first epoch contains 111 unique collectible solar systems with proof of ownership
-              stored on the Polygon blockchain. Powered by an ERC721 contract
+              stored on the Rinkeby blockchain. Powered by an ERC721 contract
               and p5.js, each new world contains a random number of planets,
               gravitational constant, and orbit pattern."
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta name="twitter:image" content="worlds.jpg" />
+
+        <meta name="twitter:title" content="Worlds NFT" />
+
+        <meta
+          name="twitter:description"
+          content="111 unique collectible solar systems with proof of ownership
+              stored on the Rinkeby blockchain."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
