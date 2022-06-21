@@ -7,14 +7,59 @@ import {
   SliderMark,
   SliderThumb,
   SliderTrack,
+  Spinner,
   Text,
 } from "@chakra-ui/react";
-import React, { useRef, useState } from "react";
-import { useInViewport } from "react-in-viewport";
-import StatsCard from "../Cards/StatsCard";
+import React, { useEffect, useState } from "react";
+import useFetchCollectionStats from "../../hooks/useFetchCollectionStats";
+import { useContractWrite, useContractRead, useAccount } from "wagmi";
+import { ethers } from "ethers";
+
+import { worldsAddress, worldsAbi } from "../../abis/worldsAbi";
 
 const Mint = () => {
+  const { data: account } = useAccount();
+  const [mintButtonText, setMintButtonText] = useState("Wallet Not Detected");
   const [sliderValue, setSliderValue] = useState(1);
+  const [price, setPrice] = useState("0.001");
+  const collectionStats = useFetchCollectionStats();
+
+  useEffect(() => {
+    setPrice(Number(sliderValue * 0.001).toFixed(3));
+  }, [sliderValue]);
+
+  useEffect(() => {
+    if (account?.address) {
+      setMintButtonText("Mint");
+      return;
+    }
+    setMintButtonText("Wallet Not Detected");
+  }, [account]);
+
+  const { isError, isLoading, write } = useContractWrite(
+    {
+      addressOrName: worldsAddress,
+      contractInterface: worldsAbi,
+    },
+    "mintWorlds",
+    {
+      args: sliderValue,
+      overrides: {
+        value: ethers.utils.parseEther(String(price)),
+      },
+    }
+  );
+
+  const handleMint = async () => {
+    write();
+    if (isError) {
+      setMintButtonText("Mint Failed!");
+      setTimeout(() => {
+        setMintButtonText("Mint");
+      }, 3000);
+    }
+  };
+
   return (
     <Flex
       id="mint"
@@ -26,8 +71,6 @@ const Mint = () => {
       alignItems="center"
     >
       <Flex
-        // @ts-ignore
-
         direction="column"
         alignItems="center"
         justifyContent="center"
@@ -56,31 +99,36 @@ const Mint = () => {
             px="20px"
             mb="8vh"
           >
-            <Flex alignItems="center" justifyContent="space-between">
-              <Text fontSize="1.1rem">Amount</Text>
-              <Text fontSize="1.1rem">Price</Text>
-            </Flex>
-
-            <Flex justifyContent="space-between">
-              <Text fontSize="2rem">{sliderValue}</Text>
-              <Text fontSize="2rem">
-                Ξ {Number(sliderValue * 0.01).toFixed(2)}
-              </Text>
-            </Flex>
+            {!isLoading ? (
+              <>
+                <Flex alignItems="center" justifyContent="space-between">
+                  <Text fontSize="1.1rem">Amount</Text>
+                  <Text fontSize="1.1rem">Price</Text>
+                </Flex>
+                <Flex justifyContent="space-between">
+                  <Text fontSize="2rem">{sliderValue}</Text>
+                  <Text fontSize="2rem">Ξ {price}</Text>{" "}
+                </Flex>{" "}
+              </>
+            ) : (
+              <Flex justifyContent="center" w="100%">
+                <Spinner size="lg" />
+              </Flex>
+            )}
           </Flex>
           <Slider
             onChange={(val) => setSliderValue(val)}
             aria-label="slider-ex-1"
             defaultValue={1}
             min={1}
-            max={111}
+            max={111 - Number(collectionStats.count)}
           >
             <SliderMark value={1} mt="1" ml="-2.5" fontSize="sm">
               1
             </SliderMark>
 
             <SliderMark value={111} mt="1" ml="-2.5" fontSize="sm">
-              111
+              {111 - Number(collectionStats.count)}
             </SliderMark>
             <SliderTrack>
               <SliderFilledTrack bg="#BBBBBB" />
@@ -94,8 +142,9 @@ const Mint = () => {
             w="300px"
             mt="6vh"
             variant="basic"
+            onClick={handleMint}
           >
-            Mint
+            {mintButtonText}
           </Button>
         </Flex>
       </Flex>

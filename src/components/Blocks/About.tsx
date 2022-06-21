@@ -1,9 +1,11 @@
 import { Button, Flex, Heading, ScaleFade, Text } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import { useInViewport } from "react-in-viewport";
+import useFetchCollectionStats from "../../hooks/useFetchCollectionStats";
 import StatsCard from "../Cards/StatsCard";
 
 const About = () => {
+  const collectionStats = useFetchCollectionStats();
   return (
     <Flex
       id="about"
@@ -57,10 +59,20 @@ const About = () => {
           flexDir={{ base: "column", md: "row" }}
           maxW="1300px"
         >
-          <StatsCard description="Mints" stat="0" />
-          <StatsCard description="Owners" stat="0" />
-          <StatsCard description="Floor" stat="Ξ 0" />
-          <StatsCard description="Volume" stat="Ξ 0" />
+          <StatsCard description="Mints" stat={collectionStats.count} />
+          <StatsCard description="Owners" stat={collectionStats.num_owners} />
+          <StatsCard
+            description="Floor"
+            stat={
+              collectionStats.floor_price
+                ? `Ξ ${collectionStats.floor_price}`
+                : `Ξ N/A`
+            }
+          />
+          <StatsCard
+            description="Total Volume"
+            stat={`Ξ ${collectionStats.total_volume}`}
+          />
         </Flex>
       </Flex>
       <Flex
